@@ -2,12 +2,12 @@ version: '3'
 
 services:
   app:
-    build:
-      context: ./
-      dockerfile: dockerfile
+    build: ./
     ports:
       # 3000 is app port
       - '3000:3000' 
+    networks:
+      - employees_net
   
   mysql:
     image: docker.io/library/mysql:8.0
@@ -20,6 +20,8 @@ services:
     volumes:
       # Data saved in route C:\ProgrmaData\Mysql\MySQl_Container\Data
       - /c/ProgramData/MySQL/MySQL_Container/Data:/var/lib/mysql 
+    networks:
+      - employees_net
   
   phpmyadmin:
     image: docker.io/library/phpmyadmin:5.2.1
@@ -28,3 +30,8 @@ services:
       PMA_PORT: 8000
     ports:
       - '8081:80'
+    networks:
+      - employees_net
+
+networks:
+  employees_net:
