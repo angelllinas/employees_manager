@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Route to get all 'empleados' 
 router.get('/', async (req, res) => {
+    console.log("req")
     try {
         const empleados = await Empleado.findAll(); // View all 'empleados' records
         res.json(empleados);
