@@ -35,12 +35,4 @@ const Empleado = sequelize.define('Empleado', {
         timestamps: false,
 });
 
-sequelize.sync()
-    .then(() => {
-        console.log('Modelo Empleado sincronizado con la base de datos');
-    })
-    .catch((err) => {
-        console.error('Error al sincronizar el modelo Empleado', err);
-    });
-
 module.exports = Empleado;

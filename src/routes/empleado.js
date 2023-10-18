@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         res.json(empleados);
     } catch (error) {
         console.error('Error al obtener empleados: ', error);
-        res.status(500).json({ error: 'Error al obtener empleados' });
+        res.status(500).json({ error: 'Error al obtener empleados', details: error.message });
     }
 });
 
@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
         res.json(empleadoCreado);
     } catch (error) {
         console.error('Error al crear empleado: ', error);
-        res.status(500).json({ error: 'Error al crear empleado' });
+        res.status(500).json({ error: 'Error al crear empleado', details: error.message });
     }
 });
 
@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
         res.json(empleado);
     } catch (error) {
         console.error('Error al obtener empleado por ID: ', error);
-        res.status(500).json({ error: 'Error al obtener empleado' });
+        res.status(500).json({ error: 'Error al obtener empleado', details: error.message  });
     }
 });
 
@@ -56,7 +56,7 @@ router.put('/:id', async (req, res) => {
         res.json(empleado);
     } catch (error) {
         console.error('Error al actualizar empleado: ', error);
-        res.status(500).json({ error: 'Error al actualizar empleado' });
+        res.status(500).json({ error: 'Error al actualizar empleado', details: error.message });
     }
 });
 
@@ -67,14 +67,14 @@ router.delete('/:id', async (req, res) => {
         // Search 'empleado' for ID
         const empleado = await Empleado.findByPk(empleadoId);
         if (!empleado) {
-            return res.status(404).json({ error: 'Empleado no encontrado' });
+            return res.status(404).json({ error: 'Empleado no encontrado', details: error.message });
         }
         // Delete the 'empleado' from the database
         await empleado.destroy();
         res.json({ message: 'Empleado eliminado con éxito' });
     } catch (error) {
         console.error('Error al eliminar empleado: ', error);
-        res.status(500).json({ error: 'Error al eliminar empleado' });
+        res.status(500).json({ error: 'Error al eliminar empleado', details: error.message });
     }
 });
 module.exports = router;

@@ -2,54 +2,36 @@ version: '3'
 
 services:
   app:
-    depends_on:
-      - data
     build: ./
     ports:
       # 3000 is app port
       - '3000:3000' 
     networks:
-      employees_net:
-        ipv4_address: '192.168.3.2'
-
-  data:
-    image: docker.io/library/mysql:8.0
+      - employees_net
+  
+  mysql:
+    image: mysql:latest
     environment:
-      - MYSQL_ROOT_PASSWORD=12345
-      - MYSQL_DATABASE=empleado
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: empleado
     ports:
       # 8000 is database port
-      - '8000:3306'
-    volumes:
-      # Data saved in route C:\ProgrmaData\Mysql\MySQl_Container\Data
-      - /c/ProgramData/MySQL/MySQL_Container/Data:/var/lib/mysql 
+      - '8090:3306'
     networks:
-      employees_net:
-        ipv4_address: '192.168.3.3'
-
+      - employees_net
+  
   phpmyadmin:
-    depends_on: 
-    - data
-    image: docker.io/library/phpmyadmin:5.2.1
+    image: phpmyadmin:latest
+    depends_on:
+      - mysql
     environment:
-      - PMA_USER=root
-      - PMA_PASSWORD=12345
-      - PMA_HOST=192.168.3.3
+      PMA_HOST: mysql 
+      PMA_PORT: 3306
     ports:
-      - '8081:80'
+      - '8091:80'
     networks:
-      employees_net:
-        ipv4_address: '192.168.3.4'
+      - employees_net
 
-# network for aplication
 networks:
   employees_net:
     driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 192.168.3.0/24
-          gateway: 192.168.3.1
-
-volumes:
-  data: {}
