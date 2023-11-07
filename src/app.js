@@ -9,7 +9,7 @@ app.use(express.json());
 
 //Routes
 const empleadoRoutes = require('./routes/empleado'); // Impor route 'empleado'
-app.use('/empleados', empleadoRoutes);
+app.use('/api/empleados', empleadoRoutes);
 
 
 // Verifica la conexión a la base de datos
