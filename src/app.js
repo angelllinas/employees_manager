@@ -1,6 +1,5 @@
 const express = require('express');
 const sequelize = require('../config/database'); 
-const Empleado = require('./models/empleadoModel');
 const app = express();
 const port = 3000;
 
@@ -30,3 +29,5 @@ sequelize
 app.listen(port, () => {
     console.log(`La aplicación está escuchando en el puerto ${port}`);
 });
+
+module.exports = app;
