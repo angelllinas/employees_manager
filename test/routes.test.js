@@ -79,7 +79,6 @@ describe('Routes', () => {
     describe('DELETE /api/empleados/:id', () => {
         it('debería eliminar un empleado por su ID', async () => {
             const empleadoId = 2;
-
             const response = await request(app).delete(`/api/empleados/${empleadoId}`);
             expect(response.status).toBe(200);
         });
