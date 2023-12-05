@@ -1,5 +1,5 @@
-const sequelize = require('../config/database');
-const Empleado = require('../src/models/empleadoModel');
+const sequelize = require('../../config/database');
+const Empleado = require('../../src/models/empleadoModel');
 
 describe('Modelo de Empleado', () => {
     beforeAll(async () => {

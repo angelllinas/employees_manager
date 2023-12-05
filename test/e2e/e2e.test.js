@@ -1,7 +1,7 @@
 const request = require('supertest');
 const { Sequelize } = require('sequelize');
-const app = require('../src/app.js');
-const  Empleado  = require('../src/models/empleadoModel.js'); 
+const app = require('../../src/app.js');
+const  Empleado  = require('../../src/models/empleadoModel.js'); 
 
 const sequelize = new Sequelize({
     dialect: 'mysql',
