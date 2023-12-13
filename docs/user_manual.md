@@ -1,57 +1,57 @@
 # User Manual - Employee Management System  
 
-### Content
+## Content
 
-* Introduction
-* Access to the system
-* Employee Creation
-* Employee Viewing
-* Employee Update
-* Elimination of Employees
+* [Introduction](#introduction)
+* [Access to the system](#system-access)
+* [Employee Creation](#employee-creation)
+* [Employee Viewing](#employee-viewing)
+* [Employee Update](#employee-update)
+* [Employees Eliminated](#employees-eliminated)
 
 ---
 
-### Introduction  
+## Introduction  
 
-Welcome to the Employee Management System. This system facilitates the efficient management of an organization's employee data. This manual provides detailed instructions on how to use key system functions
+Welcome to the Employee Management System. This system facilitates the efficient management of an organization's employee data. This manual provides detailed instructions on how to use key system functions.
 
-### System Access
+## System Access
 
-To access the system, follow these steps: 
+### To access the system, follow these steps
 
-* Open your web browser and visit the URL provided
-* Enter your login credentials (if necessary)
-* Click the *"Login"* button to access the main system panel 
+* Open your web browser and visit the URL provided.
+* Enter your login credentials (if necessary).
+* Click the *"Login"* button to access the main system panel.
 
-### Employee Creation
+## Employee Creation
 
-To add a new employee to the system, follow these steps:  
+### To add a new employee to the system, follow these steps
 
-* In the main panel, select the *"Create Employee"* option
-* Complete all required fields, such as First Name, Last Name, Identity Document, etc
-* Click the *"Save"* button to register the new employee in the database 
+* In the main panel, select the *"Create Employee"* option.
+* Complete all required fields, such as First Name, Last Name, Identity Document, etc.
+* Click the *"Save"* button to register the new employee in the database.
 
-### Employee Viewing
+## Employee Viewing
 
-To view the list of registered employees, follow these steps: 
+### To view the list of registered employees, follow these steps
 
-* In the main panel, select the *"View Employees"* option  
-* A list of all registered employees will be displayed with details like First Name, Last Name, etc  
+* In the main panel, select the *"View Employees"* option.
+* A list of all registered employees will be displayed with details like First Name, Last Name, etc.
 
-### Employee Update
+## Employee Update
 
-If you need to update an employee's information, follow these steps:  
+### If you need to update an employee's information, follow these steps
 
 * In the main panel, select the *"Update Employee"* option.
 * Search for the specific employee using their ID or name.
-* Modify the necessary information and click the *"Save"* button to apply the changes
+* Modify the necessary information and click the *"Save"* button to apply the changes.
 
-### Elimination of Employees
+## Employees Eliminated
 
-To remove an employee from the system, follow these steps: 
+### To remove an employee from the system, follow these steps
 
 * In the main panel, select the *"Delete Employee"* option.  
 * Search for the specific employee using their ID or name.  
 * Confirm the deletion and click the *"Delete"* button
 
-**Important:** This action is irreversible. Be sure to confirm the deletion only when necessary. 
+**Important:** This action is irreversible. Be sure to confirm the deletion only when necessary.
