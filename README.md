@@ -17,7 +17,7 @@ The application is an API whose purpose is to connect to a mysql database to per
 * [User manual](./docs/user_manual.md)
 * [Technical manual](./docs/technical_manual.md)
 * [API docs](./docs/api_docs.md)
-* [License](./docs/licence.md)
+* [License](./docs/license.md)
 * [Notice](./docs/NOTICE.md)
 
 ## ER diagram
