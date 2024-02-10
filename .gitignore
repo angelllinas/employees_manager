@@ -1,2 +1,9 @@
+#IDE files
 .vscode/
+.idea/
+
+#Node.js
 node_modules/
+
+# dotenv environment variable file
+.env
