@@ -1,15 +1,16 @@
 const express = require('express');
 const sequelize = require('../config/database'); 
+const empleadoRoutes = require('./routes/empleadoRoute'); // Impor route 'empleado'
+require('dotenv').config();
+const PORT = process.env.PORT || 3001;
+
 const app = express();
-const port = 3000;
 
 //Middleware
 app.use(express.json());
 
 //Routes
-const empleadoRoutes = require('./routes/empleado'); // Impor route 'empleado'
 app.use('/api/empleados', empleadoRoutes);
-
 
 // Verifica la conexión a la base de datos
 sequelize
@@ -26,8 +27,8 @@ sequelize
     console.error('Error al conectar o sincronizar con la base de datos', error);
     });
 
-app.listen(port, () => {
-    console.log(`La aplicación está escuchando en el puerto ${port}`);
+app.listen(PORT, () => {
+    console.log(`La aplicación está escuchando en el puerto ${PORT}`);
 });
 
 module.exports = app;

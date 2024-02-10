@@ -1,49 +1,42 @@
-const express = require('express');
-const Empleado = require('../models/empleadoModel'); // Import 'Empleado' model 
-const router = express.Router();
+const Empleado = require('../models/empleadoModel'); // Import 'Empleado' model
 
-// Route to get all 'empleados' 
-router.get('/', async (req, res) => {
-    console.log("req")
+const getAllEmpleados = async (req, res) => {
+    console.log('req');
     try {
-        const empleados = await Empleado.findAll(); // View all 'empleados' records
+        const empleados = await Empleado.findAll();
         res.json(empleados);
-    } catch (error) {
+    } catch (err) {
         console.error('Error al obtener empleados: ', error);
         res.status(500).json({ error: 'Error al obtener empleados', details: error.message });
     }
-});
+};
 
-// Route to create a new 'empleado'
-router.post('/', async (req, res) => {
+const createEmpleado = async (req, res) => {
     try {
-        const nuevoEmpleado = req.body; // Get 'empleado' data from the application
-        // Create a new 'empleado' record in the database
+        const nuevoEmpleado = req.body;
         const empleadoCreado = await Empleado.create(nuevoEmpleado);
         res.json(empleadoCreado);
     } catch (error) {
         console.error('Error al crear empleado: ', error);
         res.status(500).json({ error: 'Error al crear empleado', details: error.message });
     }
-});
+};
 
-// Route to get an 'empleado' by his ID
-router.get('/:id', async (req, res) => {
+const getEmpleadoById = async (req, res) => {
     try {
         const empleadoId = req.params.id;
-        const empleado = await Empleado.findByPk(empleadoId); // Search 'empleado' for ID
+        const empleado = await Empleado.findByPk(empleadoId);
         if (!empleado) {
             return res.status(404).json({ error: 'Empleado no encontrado' });
         }
         res.json(empleado);
     } catch (error) {
         console.error('Error al obtener empleado por ID: ', error);
-        res.status(500).json({ error: 'Error al obtener empleado', details: error.message  });
+        res.status(500).json({ error: 'Error al obtener empleado', details: error.message });
     }
-});
+};
 
-// Route to update an 'empleado' by their ID
-router.put('/:id', async (req, res) => {
+const updateEmpleadoById = async (req, res) => {
     try {
         const empleadoId = req.params.id;
         const empleadoActualizado = req.body; // Get the new 'empleado' data from the request
@@ -58,10 +51,9 @@ router.put('/:id', async (req, res) => {
         console.error('Error al actualizar empleado: ', error);
         res.status(500).json({ error: 'Error al actualizar empleado', details: error.message });
     }
-});
+};
 
-// Route to delete an 'empleado' by their ID
-router.delete('/:id', async (req, res) => {
+const deleteEmpleadoById = async (req, res) => {
     try {
         const empleadoId = req.params.id;
         // Search 'empleado' for ID
@@ -76,5 +68,12 @@ router.delete('/:id', async (req, res) => {
         console.error('Error al eliminar empleado: ', error);
         res.status(500).json({ error: 'Error al eliminar empleado', details: error.message });
     }
-});
-module.exports = router;
+};
+
+module.exports = {
+    getAllEmpleados,
+    createEmpleado,
+    getEmpleadoById,
+    updateEmpleadoById,
+    deleteEmpleadoById,
+};
